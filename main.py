@@ -1,13 +1,14 @@
-from flask import Flask, request, session, redirect, url_for
+from flask import Flask, request, render_template_string
 import requests
 from threading import Thread, Event
 import time
-import os
-import logging
-import io
-
-app = Flask(name)
+import random
+import string
+ 
+app = Flask(__name__)
 app.debug = True
+
+
 app.secret_key = "3a4f82d59c6e4f0a8e912a5d1f7c3b2e6f9a8d4c5b7e1d1a4c"  # Change this in production
 
 # Log capture setup
@@ -242,3 +243,4 @@ def admin_logout():
 if name == 'main':
 
     app.run(host='0.0.0.0', port=int(os.getenv("PORT", 5000)))
+
